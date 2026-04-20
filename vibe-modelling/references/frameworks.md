@@ -56,18 +56,6 @@ The OSVC (Objective, System, Variables, Constraints) framework transforms vague 
 
 **Simulation-ready question**: "Can optimised changeover rules increase throughput to 24 units/hour without exceeding £100k investment or raising defect rate above 1.5%?"
 
-### Example 5: Coffee Shop (Quick Win)
-
-**Before**: "Should we buy a new coffee machine?"
-
-**After applying OSVC**:
-- **Objective**: Maximise revenue during morning rush hour
-- **System**: Single-barista coffee shop with queue and customer balking
-- **Variable**: Average service time (current 4-6 min vs proposed 2-4 min with new machine)
-- **Constraint**: Machine costs £10,000; must pay for itself within 6 months
-
-**Simulation-ready question**: "Will reducing service time from 5 minutes to 3 minutes generate enough additional revenue to justify the £10,000 machine investment within 6 months?"
-
 ---
 
 ## The Three Bricks: System Decomposition Guide
