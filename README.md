@@ -1,6 +1,6 @@
 # Vibe Modelling Skill
 
-An agent skill for building discrete-event simulations using SimPy and AI, based on the book *Vibe Modelling: Build Digital Twins and Simulations with AI* by Harry Munro.
+An agent skill for building discrete-event simulations using SimPy and AI, based on the book [*Vibe Modelling: Build Digital Twins and Simulations with AI*](https://a.co/d/0iKdgqba) by Harry Munro.
 
 ## What It Does
 
@@ -15,9 +15,9 @@ This skill guides AI coding agents through the complete simulation modelling pro
 
 ## Who It's For
 
-- Non-technical managers who want to build simulations without coding
+- People who want to build simulations without coding
 - Anyone following the Vibe Modelling approach to AI-assisted simulation
-- Readers of the book looking for an AI co-pilot that follows the methodology
+- Readers of the book looking to get their AI agent to follow the methodology
 
 ## Installation
 
