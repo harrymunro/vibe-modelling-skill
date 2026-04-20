@@ -1,105 +1,130 @@
-# Vibe Modelling Skill
+<div align="center">
 
-An agent skill for building discrete-event simulations using SimPy and AI, based on the book [*Vibe Modelling: Build Digital Twins and Simulations with AI*](https://a.co/d/0iKdgqba) by Harry Munro.
+# 🤖 Vibe Modelling Skill 🏭
 
-## What It Does
+**Turn your AI Agent into an Expert Simulation Modeller.**  
+An open-standard skill for building discrete-event simulations using SimPy and AI.
 
-This skill guides AI coding agents through the complete simulation modelling process: from a vague business problem to a working, verified SimPy simulation with what-if analysis. It follows the 6-step AI Modelling and Simulation Process:
+[![Agent Skills](https://img.shields.io/badge/Standard-Agent_Skills-blue?style=for-the-badge)](https://agentskills.io)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
+[![SimPy](https://img.shields.io/badge/SimPy-Simulation-orange?style=for-the-badge)](https://simpy.readthedocs.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-1. **Problem Definition & Scoping** (OSVC Framework)
-2. **Data Requirements & Collection**
-3. **Conceptual Model Design** (Entities, Resources, Processes)
-4. **Simulation Build** (complete SimPy Python code)
-5. **Execution, Verification & Refinement**
-6. **Reporting & Insights** (what-if scenarios, sensitivity analysis)
+*Based on the book [Vibe Modelling: Build Digital Twins and Simulations with AI](https://a.co/d/0iKdgqba) by Harry Munro.*
 
-## Who It's For
+</div>
 
-- People who want to build simulations without coding
-- Anyone following the Vibe Modelling approach to AI-assisted simulation
-- Readers of the book looking to get their AI agent to follow the methodology
+---
 
-## Installation
+## 🌟 Overview
 
-### Agent Skills Standard (Cross-Platform)
+The **Vibe Modelling Skill** is designed to give AI coding agents (like Claude Code, Gemini CLI, or GitHub Copilot) the specialized knowledge needed to build robust, discrete-event simulations using **SimPy**. 
 
-This skill follows the [Agent Skills open standard](https://agentskills.io). Install it in any compatible tool:
+Instead of generating messy, unstructured scripts, this skill forces the agent to follow a strict **6-step AI Modelling and Simulation Process**. It transforms vague business problems into structured conceptual models, and ultimately into working Python code with what-if analysis built-in.
 
-**Claude Code:**
+### 🎯 Why use this skill?
+- **Zero-Code Simulation**: Build complex operational digital twins simply by describing your business problem.
+- **Structured Methodology**: Incorporates the **OSVC Framework** (Objective, Scope, Variables, Constraints) to prevent hallucinations and scope creep.
+- **Three Bricks Paradigm**: Ensures the AI correctly identifies *Entities, Resources, and Processes* before writing a single line of code.
+- **Ready to Run**: Outputs clean, modular SimPy code with Matplotlib visualisations, ready for execution.
+
+---
+
+## 🛠️ Installation
+
+This skill follows the [Agent Skills open standard](https://agentskills.io) and can be dropped into almost any agent environment.
+
+<details>
+<summary><b>For Claude Code</b></summary>
+
 ```bash
-# Copy the skill directory to your skills folder
+# Global installation
 cp -r vibe-modelling ~/.claude/skills/
 
-# Or for project-level use
+# Or project-level
 cp -r vibe-modelling .claude/skills/
 ```
+</details>
 
-**Gemini CLI:**
+<details>
+<summary><b>For Gemini CLI</b></summary>
+
 ```bash
-# If npx skills is available
 npx skills add harrymunro/vibe-modelling-skill --skill vibe-modelling
-
-# Or manually
-cp -r vibe-modelling ~/.gemini/skills/
 ```
+</details>
 
-**GitHub Copilot / VS Code:**
+<details>
+<summary><b>For GitHub Copilot / VS Code</b></summary>
+
 ```bash
 cp -r vibe-modelling .agents/skills/
 ```
+</details>
 
-**Any compatible agent:**
-```bash
-# Place in the tool's skills directory
-cp -r vibe-modelling <your-tool-skills-path>/
-```
+<details>
+<summary><b>Portable / Generic Agents</b></summary>
 
-### Portable Path (Broadest Compatibility)
-
-For project-level installation recognised by most tools:
+For project-level installation recognised by most modern agent tools:
 ```bash
 mkdir -p .agents/skills
 cp -r vibe-modelling .agents/skills/
 ```
+</details>
 
-## Requirements
+---
 
-- Python 3.8+ environment (Google Colab, local Python, or similar)
-- SimPy library (`pip install simpy`)
-- matplotlib for visualisations (`pip install matplotlib`)
+## 🚀 How It Works
 
-## Usage
+Once installed, the skill runs in the background. It automatically activates when you prompt your agent with scenarios involving:
+- ⏳ Queues & bottlenecks
+- 📈 Capacity planning & resourcing
+- 🔄 Process flow and operational problems
+- 🏗️ "What-if" scenario testing
 
-Once installed, the skill activates automatically when you describe:
-- A business process with queues, bottlenecks, or capacity constraints
-- A "what-if" scenario you want to test
-- An operational problem involving entities flowing through resources
-- Any request to build a simulation or digital twin
+### 💡 Example Prompts to Try
 
-**Example prompts that trigger the skill:**
+Copy and paste these to your AI agent to see the skill in action:
 
-> "I run a coffee shop and want to know if buying a faster machine would pay for itself"
+> *"I run a coffee shop and want to know if buying a faster machine would pay for itself. We have 2 baristas, and customers arrive every 3 minutes during the morning rush."*
 
-> "Model my warehouse picking process - I have 4 forklifts and orders arrive every 2 minutes"
+> *"Model my warehouse picking process. I have 4 forklifts, orders arrive every 2 minutes, and it takes between 5 and 10 minutes to pick an order."*
 
-> "I need to simulate my hospital A&E department to reduce waiting times"
+> *"I need to simulate my hospital A&E department to reduce waiting times. We have triage nurses, doctors, and a limited number of beds."*
 
-> "What happens to my call centre abandonment rate if I add 2 more agents in the morning?"
+---
 
-## Structure
+## ⚙️ Requirements
 
-```
-vibe-modelling/
-├── SKILL.md              # Main skill instructions (the core)
+To execute the SimPy scripts generated by your agent, you'll need:
+- **Python 3.8+**
+- `pip install simpy` (For the core simulation engine)
+- `pip install matplotlib` (For generated charts and insights)
+
+---
+
+## 📁 Repository Structure
+
+```text
+vibe-modelling-skill/
+├── SKILL.md              # 🧠 The core agent prompt & instructions
 └── references/
-    ├── frameworks.md     # OSVC framework, Three Bricks, worked examples
-    └── simpy-patterns.md # Code patterns, distributions, troubleshooting
+    ├── frameworks.md     # 🏗️ OSVC framework, Three Bricks methodology
+    └── simpy-patterns.md # 💻 SimPy best practices, code patterns, and math
 ```
 
-## The Book
+---
 
-*Vibe Modelling: Build Digital Twins and Simulations with AI* teaches managers how to build simulations using AI tools without writing code. Learn more at [www.schoolofsimulation.com](https://www.schoolofsimulation.com).
+## 📖 The Book Behind the Skill
 
-## Licence
+The methodology injected into this skill is based on **[Vibe Modelling: Build Digital Twins and Simulations with AI](https://a.co/d/0iKdgqba)**.
 
-MIT
+The book teaches managers, analysts, and operators how to bypass traditional coding and build operational simulations entirely through AI conversation.
+
+🌐 **[Visit School of Simulation](https://www.schoolofsimulation.com)** to learn more, access resources, and join the community.
+
+---
+
+<div align="center">
+<i>Built with ❤️ for the AI Modelling Community. Licensed under <a href="LICENSE">MIT</a>.</i>
+</div>
