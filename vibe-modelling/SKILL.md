@@ -1,6 +1,6 @@
 ---
 name: vibe-modelling
-description: "Build discrete-event simulations using SimPy and AI without writing code. Use this skill whenever a user describes a business process, operational problem, queuing system, or 'what-if' scenario that could benefit from simulation modelling. Triggers on: simulation, digital twin, queuing model, bottleneck analysis, capacity planning, what-if scenario, SimPy, process optimisation, service time, arrival rate, throughput, or any operational problem involving entities flowing through resources. Also use when users mention coffee shop simulation, warehouse modelling, hospital flow, call centre capacity, or manufacturing line analysis."
+description: "Build discrete-event simulations using SimPy and AI without writing code. Use this skill whenever a user describes a business process, operational problem, queuing system, or 'what-if' scenario that could benefit from simulation modelling. Triggers on: simulation, digital twin, queuing model, bottleneck analysis, capacity planning, what-if scenario, SimPy, process optimisation, service time, arrival rate, throughput, or any operational problem involving entities flowing through resources. Also use when users mention specific real-world system simulations or capacity planning."
 license: MIT
 compatibility: "Requires Python 3.8+ environment (Google Colab, local Python, or similar). SimPy library required (pip install simpy)."
 metadata:
@@ -47,7 +47,7 @@ Ask clarifying questions. Help them narrow scope. Define what is in-scope and ou
 Generate a comprehensive data request sheet covering:
 
 - **Entity arrivals**: Rate, pattern, distribution (e.g. "customers arrive every 1-5 minutes")
-- **Resources**: Type, capacity, schedules (e.g. "3 baristas, working 7am-3pm")
+- **Resources**: Type, capacity, schedules (e.g. "3 agents, working 7am-3pm")
 - **Process durations**: Times with variability (e.g. "service takes 4-6 minutes on average")
 - **Queue behaviour**: Patience, priority rules, balking thresholds
 - **Special logic**: Routing rules, breakdowns, shift patterns
@@ -70,11 +70,11 @@ Design the model using the **Three Bricks of Any System**:
 
 2. **Resources**: The things entities need to use (limited capacity, source of bottlenecks)
    - Properties: capacity, schedule, setup time, breakdown probability
-   - Examples: baristas, doctors, machines, loading bays, meeting rooms
+   - Examples: agents, doctors, machines, loading bays, meeting rooms
 
 3. **Processes**: The actions that happen (always take time)
    - Properties: duration (fixed or distribution), dependencies, routing logic
-   - Examples: serving coffee, treating patient, welding chassis, resolving ticket
+   - Examples: processing request, treating patient, welding chassis, resolving ticket
 
 **Output a structured conceptual model** showing:
 - All entities with their properties
@@ -100,8 +100,10 @@ Generate complete, runnable SimPy Python code. The code MUST:
 - Track all KPIs defined in the conceptual model
 - Generate visualisations using matplotlib
 - Print a clear summary of results at the end
-- Be ready to run in Google Colab (include `!pip install simpy` instruction)
+- Use `uv run` with inline dependencies (via PEP 723: `# /// script\n# dependencies = ["simpy", "matplotlib"]\n# ///`) or a standard virtual environment if executing locally
 - Use `random.seed()` or `numpy.random.seed()` for reproducibility
+- **CRITICAL (Token Efficiency)**: Never print event-level logs for every entity in the simulation (e.g., do not print 'Entity 1 arrived'). This will flood the context window. Only print aggregated KPIs, final averages, and summary statistics at the end of the run.
+- Automatically save the script locally with a `vibe_` prefix (e.g., `vibe_model.py`, `vibe_results.png`) to ensure clear namespacing. Do not just output the code and ask the user to run it; execute it yourself if you have terminal access.
 
 **Code structure pattern:**
 
@@ -119,7 +121,7 @@ When generating code, put all configurable parameters at the top in a clearly la
 
 ### Step 5: Execution, Verification & Refinement
 
-Guide the user through an iterative cycle:
+Guide the user through an iterative cycle. If you have access to a terminal, **run the script, ingest the output/errors, and automatically iterate and fix the code** before presenting the final business insights to the user.
 
 **Verification methods:**
 1. **The Eyeball Test**: Do the visualisations look sensible? Do queue lengths behave as expected?

@@ -6,7 +6,7 @@
 
 The most basic pattern. Entities arrive, queue for a single resource, get processed, and leave.
 
-**Use for**: Coffee shops, single-machine processes, one-person service desks.
+**Use for**: Small retail queues, single-machine processes, one-person service desks.
 
 ```python
 import simpy
